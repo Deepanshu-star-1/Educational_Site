@@ -1,51 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="shortcut icon" type="png" href="../images/image Education logo.png">
-	<title>Login SignUp</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/style1.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <!-- It will redirect to the Home Page after submitting the form -->
-  <script>
-  $(document).ready(function(){
-    $("form").submit(function(){
-      alert("Great Job !");
-    });
-  });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Education Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    
 </head>
 <body>
-		<div class="form-box">
-			<div class="button-box">
-				<div id="btn"></div>
-				<button type="button" class="toggle-btn" id="log" onclick="login()" style="color: #250707;">Log In</button>
-				<button type="button" class="toggle-btn" id="reg" onclick="register()">Sign In</button>
-			</div>
-			
-			<!-- Login Form -->
-			<form id="login" class="input-group" action="index.html">
-				<div class="inp">
-					<img src="../images/image user.png"><input type="text" id="email" class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
-				</div>
-				<div class="inp">
-					<img src="../images/image password.png"><input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
-				</div>
-				<input type="checkbox" class="check-box">Remember Password
-				<button type="submit" class="submit-btn">Log In</button>
-			</form>
+    <!-- Floating Icons Background -->
+    <div class="floating-icons">
+        <div class="floating-icon" style="top: 10%; left: 5%; animation-duration: 20s;"><i class="fas fa-book"></i></div>
+        <div class="floating-icon" style="top: 20%; left: 90%; animation-duration: 25s;"><i class="fas fa-graduation-cap"></i></div>
+        <div class="floating-icon" style="top: 60%; left: 15%; animation-duration: 18s;"><i class="fas fa-pencil-alt"></i></div>
+        <div class="floating-icon" style="top: 40%; left: 80%; animation-duration: 22s;"><i class="fas fa-globe"></i></div>
+        <div class="floating-icon" style="top: 80%; left: 70%; animation-duration: 17s;"><i class="fas fa-calculator"></i></div>
+        <div class="floating-icon" style="top: 30%; left: 30%; animation-duration: 28s;"><i class="fas fa-microscope"></i></div>
+    </div>
+    
+    <div class="container">
+        <div class="signin-box">
+            <a href="index.html"><img src="../images/image Education logo.png" alt="Education Portal Logo" class="logo"></a>
 
-			<!-- Registration Form -->
-			<form id="register" class="input-group" onsubmit="return validatePasswords()">
-				<input type="text" class="input-field" placeholder="Full Name" required="required">
-				<input type="email" class="input-field" placeholder="Email Address" required="required">
-				<input type="password" id="passed" class="input-field" placeholder="Create Password" name="psame" required="required">
-				<input type="password" id="confirmpassed" class="input-field" placeholder="Confirm Password" name="psame" required="required">
-				<span id="error-message" style="color:red; display:none;">Passwords do not match!</span>
-				<input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
-				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Sign Up</button>
-			</form>
-		</div>
-		<script type="text/javascript" src="../JavaScript/script.js"></script>
+            
+            <h2>Login In to Your Account</h2>
+            
+            <form>
+                <div class="input-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" placeholder="Enter your username or email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="input-group" style="display: flex; align-items: center;">
+                    <input type="checkbox" id="remember" style="width: auto; margin-right: 10px;">
+                    <label for="remember" style="display: inline; margin: 0;">Remember me</label>
+                </div>
+                
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                
+                <button type="submit" class="signin-btn">Login In</button>
+            </form>
+            
+            <div class="separator">
+                <div class="line"></div>
+                <div class="text">Or continue with</div>
+                <div class="line"></div>
+            </div>
+            
+            <div class="social-login">
+                <div class="social-btn">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-btn">
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+            
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up now</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            if (username && password) {
+                alert('Successfully logged in');
+                window.location.href = "index.html";
+            }
+        });
+
+
+    </script>
 </body>
 </html>
